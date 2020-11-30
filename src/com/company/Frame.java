@@ -3,6 +3,7 @@ package com.company;
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.tree.DefaultMutableTreeNode;
+import java.awt.*;
 
 public class Frame {
     public JFrame frame;
@@ -10,7 +11,7 @@ public class Frame {
     private FileSystemPanel panel;
     private JTree fileManagerTree;
     private FileManager fileManager;
-
+    private HDD hdd;
     /**
      * Launch the application.
      */
@@ -56,9 +57,9 @@ public class Frame {
             }
         }
 
-        HDD HDD = new HDD(size, sizeSector);
-        fileSystem = new FileSystem(HDD);
-        fileManager = new FileManager(this, HDD, fileSystem);
+        hdd = new HDD(size, sizeSector);
+        fileSystem = new FileSystem(hdd);
+        fileManager = new FileManager(this, hdd, fileSystem);
 
         panel = new FileSystemPanel(fileSystem);
         panel.setBorder(new BevelBorder(BevelBorder.LOWERED,
@@ -122,6 +123,7 @@ public class Frame {
             fileManager.move();
             panel.repaint();
         });
+
     }
 
     public JTree getFileManagerTree() {

@@ -8,7 +8,7 @@ public class HDD {
     private int freeSectors;
     private final int sectorSize;
     private final int sectorsNum;
-    private final Sector[] sectorsArray;
+    public final Sector[] sectorsArray;
 
     public HDD(int size, int sectorsSize) {
         sectorsNum = size / sectorsSize;
